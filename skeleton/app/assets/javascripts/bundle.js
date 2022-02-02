@@ -22,11 +22,10 @@ const ApiUtil = {
 			method: "DELETE",
 			url: `/users/${userId}/follow`,
 			// data: {user: {user_id: userId}},
-			dataType: 'JSON'})
-	}
-
+			dataType: 'JSON'
+	})
+}
 };
-
 
 
 module.exports = ApiUtil;
@@ -45,7 +44,6 @@ const ApiUtil = __webpack_require__(/*! ./api_util.js */ "./frontend/api_util.js
 
 class FollowToggle {
 	constructor(el){
-		// debugger
 		this.el = $(el);
 		this.userId = this.el.data('user-id');
 		this.followState = this.el.data('initial-follow-state');
@@ -54,21 +52,20 @@ class FollowToggle {
 			e.preventDefault();
 			this.handleClick.bind(this)();
 		})
-		// this.handleClick().then(this.render);
 	}
 
 	render() {
 		if (this.followState === 'unfollowed') {
-			
 			this.el.text('Follow!');
 		} else {
-			
 			this.el.text("Unfollow!");
 		}
+		this.el.prop('disabled', false);
 	}
 
 	handleClick() {
 		// debugger
+		this.el.prop('disabled', true);
 		if (this.followState === 'unfollowed') {
 			this.followState = 'followed';
 			// debugger

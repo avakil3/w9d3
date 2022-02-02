@@ -13,11 +13,10 @@ const ApiUtil = {
 			method: "DELETE",
 			url: `/users/${userId}/follow`,
 			// data: {user: {user_id: userId}},
-			dataType: 'JSON'})
-	}
-
+			dataType: 'JSON'
+	})
+}
 };
-
 
 
 module.exports = ApiUtil;
