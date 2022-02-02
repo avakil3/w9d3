@@ -1,13 +1,24 @@
-return $.ajax({
-    method: "DELETE",
-    url: `/users/${this.userId}/follow`,
-    data: {user: {user_id: this.userId}},
-    dataType: 'JSON'})
+const ApiUtil = {
+	newFollow: function(userId){
+		return $.ajax({
+			method: "POST",
+			url: `/users/${userId}/follow`,
+			// data: {user: {user_id: userId}},
+			dataType: 'JSON'
+		})
+	},
+
+	deleteFollow: function(userId){
+		return $.ajax({
+			method: "DELETE",
+			url: `/users/${userId}/follow`,
+			// data: {user: {user_id: userId}},
+			dataType: 'JSON'})
+	}
+
+};
 
 
-return $.ajax({
-        method: "POST",
-        url: `/users/${this.userId}/follow`,
-        data: {user: {user_id: this.userId}},
-        dataType: 'JSON'
-    })
+
+module.exports = ApiUtil;
+
